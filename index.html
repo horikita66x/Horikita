@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* железный фон */
         .bg-metal {
             position: fixed;
             top: 0;
@@ -49,7 +48,6 @@
             z-index: 2;
         }
 
-        /* хедер — как тату */
         .header {
             text-align: center;
             margin-bottom: 3rem;
@@ -91,7 +89,6 @@
             border: 1px solid #c0a050;
         }
 
-        /* сетка товаров */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -174,6 +171,7 @@
             font-size: 0.7rem;
             transition: 0.2s;
             text-transform: uppercase;
+            cursor: pointer;
         }
 
         .buy-btn:hover {
@@ -247,15 +245,13 @@
         </div>
     </div>
 
-    <div class="products-grid" id="productsGrid">
-        <!-- товары заполнятся через JS, но можно оставить и статику -->
-    </div>
+    <div class="products-grid" id="productsGrid"></div>
 
     <div class="tg-section">
-        <a href="https://t.me/XOPNKNTA" target="_blank" class="tg-link">
+        <a href="https://t.me/horikita666" target="_blank" class="tg-link">
             💪 ЗАКАЗАТЬ В TELEGRAM 💪
         </a>
-        <div style="font-size: 0.65rem; margin-top: 0.6rem; color:#aaa;">пиши @XOPNKNTA — размер, цвет, доставка</div>
+        <div style="font-size: 0.65rem; margin-top: 0.6rem; color:#aaa;">пиши @horikita666 — размер, цвет, доставка</div>
     </div>
 
     <div class="footer">
@@ -266,19 +262,15 @@
 
 <script>
     (function() {
-        // ========================
-        // 1. СЧЁТЧИК ПОСЕЩЕНИЙ (localStorage)
+        // счетчик посещений
         let visits = localStorage.getItem('brutalVisits');
-        if (visits === null) {
-            visits = 1;
-        } else {
-            visits = Number(visits) + 1;
-        }
+        if (visits === null) visits = 1;
+        else visits = Number(visits) + 1;
         localStorage.setItem('brutalVisits', visits);
         const visitSpan = document.getElementById('visitCounter');
         if (visitSpan) visitSpan.innerText = visits;
 
-        // 2. СЧЁТЧИК ЗАКАЗОВ (кликов по кнопкам "купить")
+        // счетчик заказов
         let orders = localStorage.getItem('brutalOrders');
         if (orders === null) orders = 0;
         else orders = Number(orders);
@@ -291,7 +283,7 @@
             if (orderSpan) orderSpan.innerText = orders;
         }
 
-        // 3. ДАННЫЕ ТОВАРОВ (ссылки уже правильные)
+        // товары (фото уже правильные)
         const products = [
             { title: "Horikita shirt", desc: "100% хлопок · чёрный / белый принт", price: "2500P", img: "https://i.ibb.co/dhHsG8T/IMG-20260421-151728-339.jpg" },
             { title: "Horikita Hoodie", desc: "оверсайз · утяжелённый хлопок", price: "3199P", img: "https://i.ibb.co/Qv5CvXjG/IMG-20260420-203529-254.jpg" },
@@ -314,22 +306,18 @@
                     <div class="product-desc">${p.desc}</div>
                     <div class="price-row">
                         <span class="price">${p.price}</span>
-                        <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn order-btn">КУПИТЬ →</a>
+                        <a href="https://t.me/horikita666" target="_blank" class="buy-btn order-btn">КУПИТЬ →</a>
                     </div>
                 `;
                 grid.appendChild(card);
             });
 
-            // добавляем обработчики для счётчика заказов
             document.querySelectorAll('.order-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    // не мешаем переходу на ссылку
-                    incrementOrders();
-                });
+                btn.addEventListener('click', incrementOrders);
             });
         }
 
-        // 4. АНИМАЦИЯ ПЕЧАТИ ЗАГОЛОВКА (для пацанского вайба)
+        // печать заголовка
         const brandEl = document.querySelector('.brand');
         if (brandEl && !brandEl.hasAttribute('data-typed')) {
             brandEl.setAttribute('data-typed', 'true');
@@ -346,13 +334,11 @@
             typeWriter();
         }
 
-        // 5. ТЕКУЩИЙ ГОД В ФУТЕРЕ
+        // текущий год
         const yearSpan = document.getElementById('currentYear');
-        if (yearSpan) {
-            yearSpan.innerText = new Date().getFullYear() + ' — REAL BRUTAL';
-        }
+        if (yearSpan) yearSpan.innerText = new Date().getFullYear() + ' — REAL BRUTAL';
 
-        // 6. ЭФФЕКТ ПОЯВЛЕНИЯ ТОВАРОВ ПРИ СКРОЛЛЕ (простой)
+        // анимация появления карточек
         const cards = document.querySelectorAll('.product-card');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
