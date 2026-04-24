@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>HORIKITA66 — STORE // Y2K</title>
+    <title>HORIKITA66 — BRUTAL STORE</title>
     <style>
         * {
             margin: 0;
@@ -12,175 +12,140 @@
         }
 
         body {
-            min-height: 100vh;
-            background: #0a0a0f;
-            font-family: 'Inter', 'SF Mono', 'Fira Code', system-ui, monospace;
-            color: #f0f0ff;
-            line-height: 1.5;
+            background: #0c0c0c;
+            font-family: 'Impact', 'Arial Black', 'Inter', system-ui, monospace;
+            color: #e0e0e0;
+            line-height: 1.4;
             padding: 2rem 1.2rem;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* ========== ДЕТАЛИЗИРОВАННЫЙ АНИМИРОВАННЫЙ ФОН ========== */
-        .bg-grid {
+        /* железный фон */
+        .bg-metal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(#1a1a2e 1px, transparent 1px),
-                linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 0;
-            opacity: 0.4;
-            pointer-events: none;
+            background: repeating-linear-gradient(45deg, #111 0px, #111 2px, #1a1a1a 2px, #1a1a1a 8px);
+            z-index: -2;
         }
 
-        .bg-glow {
-            position: fixed;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(circle at 30% 40%, rgba(100, 70, 220, 0.25), rgba(0, 0, 0, 0) 60%);
-            z-index: 0;
-            pointer-events: none;
-            animation: glowMove 16s ease infinite;
-        }
-
-        .bg-glow2 {
-            position: fixed;
-            bottom: -20%;
-            right: -20%;
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle at 70% 80%, rgba(220, 70, 150, 0.2), rgba(0, 0, 0, 0) 60%);
-            z-index: 0;
-            pointer-events: none;
-            animation: glowMove2 20s ease infinite;
-        }
-
-        .noise {
+        .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
-            background-repeat: repeat;
-            opacity: 0.2;
-            pointer-events: none;
-            z-index: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(0,0,0,0.2), #000000);
+            z-index: -1;
         }
 
-        @keyframes glowMove {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-            50% { transform: translate(5%, 5%) scale(1.05); opacity: 0.4; }
-            100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
-        }
-
-        @keyframes glowMove2 {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.2; }
-            50% { transform: translate(-5%, -5%) scale(1.08); opacity: 0.35; }
-            100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
-        }
-
-        /* ========== ОСНОВНОЙ КОНТЕНТ ========== */
         .container {
-            position: relative;
-            z-index: 10;
             max-width: 1300px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
+        /* хедер — как тату */
         .header {
             text-align: center;
             margin-bottom: 3rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(110, 90, 220, 0.5);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-bottom: 3px solid #c0a050;
+            background: rgba(0,0,0,0.5);
+            letter-spacing: 2px;
         }
 
         .brand {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 3rem;
+            font-weight: 900;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff, #c084fc, #60a5fa);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 10px rgba(128, 90, 240, 0.5);
+            color: #d4af37;
+            text-shadow: 3px 3px 0px #5a3e0b;
+            word-break: break-word;
         }
 
         .tagline {
-            color: #a5b4fc;
-            font-size: 0.75rem;
+            color: #aaa;
+            font-size: 0.7rem;
             margin-top: 0.5rem;
-            letter-spacing: 3px;
-            font-weight: 500;
+            font-family: monospace;
         }
 
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            background: #1f1f1f;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #c0a050;
+        }
+
+        /* сетка товаров */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
             margin: 2.5rem 0;
         }
 
         .product-card {
-            background: rgba(15, 15, 25, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(110, 90, 220, 0.4);
-            border-radius: 28px;
-            padding: 1.2rem;
-            transition: all 0.25s ease;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 1rem;
+            transition: 0.2s ease;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 0 #2a2a2a;
+            transform: translateY(-4px);
         }
 
         .product-card:hover {
-            border-color: #a78bfa;
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(100, 70, 200, 0.3);
-            background: rgba(20, 20, 35, 0.8);
+            transform: translateY(-8px);
+            border-color: #c0a050;
+            box-shadow: 0 12px 0 #2a2a2a;
         }
 
         .product-img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            background: #111118;
-            border-radius: 20px;
+            background: #1e1e1e;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 1rem;
-            border: 1px solid #2d2d44;
+            border: 1px solid #333;
         }
 
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.02);
         }
 
         .product-title {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 0.3rem;
-            letter-spacing: -0.3px;
         }
 
         .product-desc {
-            font-size: 0.75rem;
-            color: #b9c3e6;
+            font-size: 0.7rem;
+            color: #9a9a9a;
             margin-bottom: 1rem;
+            font-family: monospace;
         }
 
         .price-row {
@@ -188,196 +153,222 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            border-top: 1px dashed #3a3a5a;
-            padding-top: 0.9rem;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 0.8rem;
         }
 
         .price {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: #facc15;
-            text-shadow: 0 0 4px #ffb347;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: #f5c542;
         }
 
         .buy-btn {
-            background: #1e1e2e;
-            border: 1px solid #8b5cf6;
-            padding: 0.45rem 1.2rem;
+            background: #000;
+            border: 2px solid #c0a050;
+            padding: 0.4rem 1.2rem;
             border-radius: 40px;
             text-decoration: none;
-            color: white;
+            color: #f5c542;
+            font-weight: bold;
             font-size: 0.7rem;
-            font-weight: 700;
             transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .buy-btn:hover {
-            background: #8b5cf6;
-            border-color: #c4b5fd;
-            transform: translateY(-2px);
-            gap: 10px;
+            background: #c0a050;
+            color: #000;
+            border-color: #000;
         }
 
         .tg-section {
             text-align: center;
-            margin: 3rem 0 2rem;
-            padding: 1.8rem;
-            border-top: 1px solid #3a3a5a;
-            border-bottom: 1px solid #3a3a5a;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 60px;
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: #0a0a0a;
+            border-top: 1px solid #c0a050;
+            border-bottom: 1px solid #c0a050;
         }
 
         .tg-link {
-            background: #1e293b;
-            border: 1px solid #8b5cf6;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
+            background: #1a1a1a;
+            border: 2px solid #c0a050;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
             text-decoration: none;
-            color: white;
-            font-weight: 700;
+            color: #f5c542;
+            font-weight: bold;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             transition: 0.2s;
-            font-size: 1rem;
+            text-transform: uppercase;
         }
 
         .tg-link:hover {
-            background: #8b5cf6;
-            gap: 18px;
-            transform: scale(1.02);
+            background: #c0a050;
+            color: #000;
+            border-color: #000;
         }
 
         .footer {
             text-align: center;
-            font-size: 0.65rem;
-            color: #7d7db0;
+            font-size: 0.6rem;
+            color: #6a6a6a;
             margin-top: 2rem;
+            border-top: 1px solid #222;
+            padding-top: 1rem;
         }
 
         @media (max-width: 680px) {
-            body {
-                padding: 1rem;
-            }
             .brand {
                 font-size: 2rem;
             }
-            .products-grid {
-                gap: 1.2rem;
+            .stats {
+                font-size: 0.65rem;
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- фон с деталями -->
-    <div class="bg-grid"></div>
-    <div class="bg-glow"></div>
-    <div class="bg-glow2"></div>
-    <div class="noise"></div>
+<div class="bg-metal"></div>
+<div class="bg-overlay"></div>
 
-    <div class="container">
-        <div class="header">
-            <div class="brand">HORIKITA66</div>
-            <div class="tagline">// STATIC APPAREL · Y2K EDITION //</div>
-        </div>
-
-        <div class="products-grid">
-            <!-- 1. Футболка -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://i.ibb.co/dhHsG8T/IMG-20260421-151728-339.jpg" alt="футболка">
-                </div>
-                <div class="product-title">Horikita shirt</div>
-                <div class="product-desc">100% хлопок · чёрный / белый принт</div>
-                <div class="price-row">
-                    <span class="price">2500P</span>
-                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-                </div>
-            </div>
-
-            <!-- 2. Худи -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://i.ibb.co/Qv5CvXjG/IMG-20260420-203529-254.jpg" alt="худи">
-                </div>
-                <div class="product-title">Horikita Hoodie</div>
-                <div class="product-desc">оверсайз · утяжелённый хлопок</div>
-                <div class="price-row">
-                    <span class="price">3199P</span>
-                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-                </div>
-            </div>
-
-            <!-- 3. Свитшот -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://i.ibb.co/xK3FDMPj/IMG-20260420-170510-716.jpg" alt="свитшот">
-                </div>
-                <div class="product-title">Horikita Sweater</div>
-                <div class="product-desc">флис · минималистичный крой</div>
-                <div class="price-row">
-                    <span class="price">3000P</span>
-                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-                </div>
-            </div>
-
-            <!-- 4. Джемпер -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://i.ibb.co/r2MYmXj9/IMG-20260421-151834-343.jpg" alt="джемпер">
-                </div>
-                <div class="product-title">Horikita Pullover</div>
-                <div class="product-desc">шерсть + акрил · винтажный покрой</div>
-                <div class="price-row">
-                    <span class="price">5000P</span>
-                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-                </div>
-            </div>
-
-            <!-- 5. Бомбер -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://i.ibb.co/TD2j6czH/IMG-20260421-151625-372.jpg" alt="бомбер">
-                </div>
-                <div class="product-title">Horikita Bomber</div>
-                <div class="product-desc">нейлон · сатиновая подкладка</div>
-                <div class="price-row">
-                    <span class="price">3300P</span>
-                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-                </div>
-            </div>
-
-            <!-- 6. Джинсы -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://i.ibb.co/nNPWrHZh/IMG-20260421-152115-473.jpg" alt="джинсы">
-                </div>
-                <div class="product-title">Horikita Denim</div>
-                <div class="product-desc">12 oz · прямой крой · японский деним</div>
-                <div class="price-row">
-                    <span class="price">3400P</span>
-                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="tg-section">
-            <a href="https://t.me/XOPNKNTA" target="_blank" class="tg-link">
-                ✦ ЗАКАЗАТЬ ЧЕРЕЗ TELEGRAM ✦
-            </a>
-            <div style="font-size: 0.65rem; margin-top: 0.8rem; color:#a5b4fc;">пишите @XOPNKNTA — размер, цвет, доставка</div>
-        </div>
-
-        <div class="footer">
-            HORIKITA66 // APPAREL — официальный магазин<br>
-            все заказы обрабатываются вручную
+<div class="container">
+    <div class="header">
+        <div class="brand">HORIKITA66</div>
+        <div class="tagline">// HARD APPAREL // ONLY REAL //</div>
+        <div class="stats">
+            <span>👁️ ПОСЕЩЕНИЙ: <span id="visitCounter">0</span></span>
+            <span>⚡ ЗАКАЗОВ: <span id="orderCounter">0</span></span>
         </div>
     </div>
+
+    <div class="products-grid" id="productsGrid">
+        <!-- товары заполнятся через JS, но можно оставить и статику -->
+    </div>
+
+    <div class="tg-section">
+        <a href="https://t.me/XOPNKNTA" target="_blank" class="tg-link">
+            💪 ЗАКАЗАТЬ В TELEGRAM 💪
+        </a>
+        <div style="font-size: 0.65rem; margin-top: 0.6rem; color:#aaa;">пиши @XOPNKNTA — размер, цвет, доставка</div>
+    </div>
+
+    <div class="footer">
+        HORIKITA66 // BRUTAL STORE — всё по-честному<br>
+        <span id="currentYear"></span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ========================
+        // 1. СЧЁТЧИК ПОСЕЩЕНИЙ (localStorage)
+        let visits = localStorage.getItem('brutalVisits');
+        if (visits === null) {
+            visits = 1;
+        } else {
+            visits = Number(visits) + 1;
+        }
+        localStorage.setItem('brutalVisits', visits);
+        const visitSpan = document.getElementById('visitCounter');
+        if (visitSpan) visitSpan.innerText = visits;
+
+        // 2. СЧЁТЧИК ЗАКАЗОВ (кликов по кнопкам "купить")
+        let orders = localStorage.getItem('brutalOrders');
+        if (orders === null) orders = 0;
+        else orders = Number(orders);
+        const orderSpan = document.getElementById('orderCounter');
+        if (orderSpan) orderSpan.innerText = orders;
+
+        function incrementOrders() {
+            orders++;
+            localStorage.setItem('brutalOrders', orders);
+            if (orderSpan) orderSpan.innerText = orders;
+        }
+
+        // 3. ДАННЫЕ ТОВАРОВ (ссылки уже правильные)
+        const products = [
+            { title: "Horikita shirt", desc: "100% хлопок · чёрный / белый принт", price: "2500P", img: "https://i.ibb.co/dhHsG8T/IMG-20260421-151728-339.jpg" },
+            { title: "Horikita Hoodie", desc: "оверсайз · утяжелённый хлопок", price: "3199P", img: "https://i.ibb.co/Qv5CvXjG/IMG-20260420-203529-254.jpg" },
+            { title: "Horikita Sweater", desc: "флис · минималистичный крой", price: "3000P", img: "https://i.ibb.co/xK3FDMPj/IMG-20260420-170510-716.jpg" },
+            { title: "Horikita Pullover", desc: "шерсть + акрил · винтажный покрой", price: "5000P", img: "https://i.ibb.co/r2MYmXj9/IMG-20260421-151834-343.jpg" },
+            { title: "Horikita Bomber", desc: "нейлон · сатиновая подкладка", price: "3300P", img: "https://i.ibb.co/TD2j6czH/IMG-20260421-151625-372.jpg" },
+            { title: "Horikita Denim", desc: "12 oz · прямой крой · японский деним", price: "3400P", img: "https://i.ibb.co/nNPWrHZh/IMG-20260421-152115-473.jpg" }
+        ];
+
+        const grid = document.getElementById('productsGrid');
+        if (grid) {
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-img">
+                        <img src="${p.img}" alt="${p.title}" loading="lazy">
+                    </div>
+                    <div class="product-title">${p.title}</div>
+                    <div class="product-desc">${p.desc}</div>
+                    <div class="price-row">
+                        <span class="price">${p.price}</span>
+                        <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn order-btn">КУПИТЬ →</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // добавляем обработчики для счётчика заказов
+            document.querySelectorAll('.order-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // не мешаем переходу на ссылку
+                    incrementOrders();
+                });
+            });
+        }
+
+        // 4. АНИМАЦИЯ ПЕЧАТИ ЗАГОЛОВКА (для пацанского вайба)
+        const brandEl = document.querySelector('.brand');
+        if (brandEl && !brandEl.hasAttribute('data-typed')) {
+            brandEl.setAttribute('data-typed', 'true');
+            const originalText = brandEl.innerText;
+            brandEl.innerText = '';
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    brandEl.innerText += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 70);
+                }
+            }
+            typeWriter();
+        }
+
+        // 5. ТЕКУЩИЙ ГОД В ФУТЕРЕ
+        const yearSpan = document.getElementById('currentYear');
+        if (yearSpan) {
+            yearSpan.innerText = new Date().getFullYear() + ' — REAL BRUTAL';
+        }
+
+        // 6. ЭФФЕКТ ПОЯВЛЕНИЯ ТОВАРОВ ПРИ СКРОЛЛЕ (простой)
+        const cards = document.querySelectorAll('.product-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0px)';
+                }
+            });
+        }, { threshold: 0.2 });
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.4s ease';
+            observer.observe(card);
+        });
+    })();
+</script>
 </body>
-                                                 </html>
+</html>
