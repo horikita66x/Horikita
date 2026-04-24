@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>HORIKITA66 — STORE</title>
+    <title>HORIKITA66 — STORE // Y2K</title>
     <style>
         * {
             margin: 0;
@@ -12,14 +12,85 @@
         }
 
         body {
-            background: #0b0b10;
-            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-            color: #ededf2;
+            min-height: 100vh;
+            background: #0a0a0f;
+            font-family: 'Inter', 'SF Mono', 'Fira Code', system-ui, monospace;
+            color: #f0f0ff;
             line-height: 1.5;
             padding: 2rem 1.2rem;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* ========== ДЕТАЛИЗИРОВАННЫЙ АНИМИРОВАННЫЙ ФОН ========== */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(#1a1a2e 1px, transparent 1px),
+                linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 30% 40%, rgba(100, 70, 220, 0.25), rgba(0, 0, 0, 0) 60%);
+            z-index: 0;
+            pointer-events: none;
+            animation: glowMove 16s ease infinite;
+        }
+
+        .bg-glow2 {
+            position: fixed;
+            bottom: -20%;
+            right: -20%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at 70% 80%, rgba(220, 70, 150, 0.2), rgba(0, 0, 0, 0) 60%);
+            z-index: 0;
+            pointer-events: none;
+            animation: glowMove2 20s ease infinite;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
+            background-repeat: repeat;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes glowMove {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+            50% { transform: translate(5%, 5%) scale(1.05); opacity: 0.4; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+        }
+
+        @keyframes glowMove2 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+            50% { transform: translate(-5%, -5%) scale(1.08); opacity: 0.35; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+        }
+
+        /* ========== ОСНОВНОЙ КОНТЕНТ ========== */
         .container {
+            position: relative;
+            z-index: 10;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -27,75 +98,88 @@
         .header {
             text-align: center;
             margin-bottom: 3rem;
-            border-bottom: 1px solid #2a2a35;
             padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(110, 90, 220, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .brand {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #fff, #aaaaff);
+            background: linear-gradient(135deg, #ffffff, #c084fc, #60a5fa);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            text-shadow: 0 0 10px rgba(128, 90, 240, 0.5);
         }
 
         .tagline {
-            color: #8f8fbf;
+            color: #a5b4fc;
             font-size: 0.75rem;
             margin-top: 0.5rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-weight: 500;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 2rem;
             margin: 2.5rem 0;
         }
 
         .product-card {
-            background: #111117;
-            border: 1px solid #2a2a35;
-            border-radius: 20px;
+            background: rgba(15, 15, 25, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(110, 90, 220, 0.4);
+            border-radius: 28px;
             padding: 1.2rem;
-            transition: 0.2s ease;
+            transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
         }
 
         .product-card:hover {
-            border-color: #6f5bef;
-            transform: translateY(-4px);
+            border-color: #a78bfa;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(100, 70, 200, 0.3);
+            background: rgba(20, 20, 35, 0.8);
         }
 
         .product-img {
             width: 100%;
             aspect-ratio: 1 / 1;
-            background: #1c1c26;
-            border-radius: 16px;
+            background: #111118;
+            border-radius: 20px;
             overflow: hidden;
             margin-bottom: 1rem;
-            border: 1px solid #2e2e3a;
+            border: 1px solid #2d2d44;
         }
 
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.02);
         }
 
         .product-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
+            letter-spacing: -0.3px;
         }
 
         .product-desc {
             font-size: 0.75rem;
-            color: #a0a0c0;
+            color: #b9c3e6;
             margin-bottom: 1rem;
         }
 
@@ -104,178 +188,196 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            border-top: 1px dashed #2a2a35;
+            border-top: 1px dashed #3a3a5a;
             padding-top: 0.9rem;
         }
 
         .price {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #facc15;
+            text-shadow: 0 0 4px #ffb347;
         }
 
         .buy-btn {
-            background: #1e1e2a;
-            border: 1px solid #6f5bef;
-            padding: 0.4rem 1rem;
+            background: #1e1e2e;
+            border: 1px solid #8b5cf6;
+            padding: 0.45rem 1.2rem;
             border-radius: 40px;
             text-decoration: none;
             color: white;
             font-size: 0.7rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            letter-spacing: 0.5px;
         }
 
         .buy-btn:hover {
-            background: #6f5bef;
-            transform: scale(0.98);
+            background: #8b5cf6;
+            border-color: #c4b5fd;
+            transform: translateY(-2px);
+            gap: 10px;
         }
 
         .tg-section {
             text-align: center;
             margin: 3rem 0 2rem;
             padding: 1.8rem;
-            border-top: 1px solid #2a2a35;
-            border-bottom: 1px solid #2a2a35;
+            border-top: 1px solid #3a3a5a;
+            border-bottom: 1px solid #3a3a5a;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 60px;
         }
 
         .tg-link {
-            background: #10162e;
-            border: 1px solid #6c5ce7;
-            padding: 0.8rem 1.8rem;
+            background: #1e293b;
+            border: 1px solid #8b5cf6;
+            padding: 0.9rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transition: 0.2s;
+            font-size: 1rem;
         }
 
         .tg-link:hover {
-            background: #6c5ce7;
-            gap: 14px;
+            background: #8b5cf6;
+            gap: 18px;
+            transform: scale(1.02);
         }
 
         .footer {
             text-align: center;
             font-size: 0.65rem;
-            color: #5f5f8a;
+            color: #7d7db0;
             margin-top: 2rem;
         }
 
         @media (max-width: 680px) {
             body {
-                padding: 1.2rem;
+                padding: 1rem;
             }
             .brand {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            .products-grid {
+                gap: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <div class="brand">HORIKITA66</div>
-        <div class="tagline">// STATIC APPAREL · LIMITED EDITION //</div>
+
+    <!-- фон с деталями -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow2"></div>
+    <div class="noise"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="brand">HORIKITA66</div>
+            <div class="tagline">// STATIC APPAREL · Y2K EDITION //</div>
+        </div>
+
+        <div class="products-grid">
+            <!-- 1. Футболка -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://i.ibb.co/dhHsG8T/IMG-20260421-151728-339.jpg" alt="футболка">
+                </div>
+                <div class="product-title">Horikita shirt</div>
+                <div class="product-desc">100% хлопок · чёрный / белый принт</div>
+                <div class="price-row">
+                    <span class="price">2500P</span>
+                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
+                </div>
+            </div>
+
+            <!-- 2. Худи -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://i.ibb.co/Qv5CvXjG/IMG-20260420-203529-254.jpg" alt="худи">
+                </div>
+                <div class="product-title">Horikita Hoodie</div>
+                <div class="product-desc">оверсайз · утяжелённый хлопок</div>
+                <div class="price-row">
+                    <span class="price">3199P</span>
+                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
+                </div>
+            </div>
+
+            <!-- 3. Свитшот -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://i.ibb.co/xK3FDMPj/IMG-20260420-170510-716.jpg" alt="свитшот">
+                </div>
+                <div class="product-title">Horikita Sweater</div>
+                <div class="product-desc">флис · минималистичный крой</div>
+                <div class="price-row">
+                    <span class="price">3000P</span>
+                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
+                </div>
+            </div>
+
+            <!-- 4. Джемпер -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://i.ibb.co/r2MYmXj9/IMG-20260421-151834-343.jpg" alt="джемпер">
+                </div>
+                <div class="product-title">Horikita Pullover</div>
+                <div class="product-desc">шерсть + акрил · винтажный покрой</div>
+                <div class="price-row">
+                    <span class="price">5000P</span>
+                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
+                </div>
+            </div>
+
+            <!-- 5. Бомбер -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://i.ibb.co/TD2j6czH/IMG-20260421-151625-372.jpg" alt="бомбер">
+                </div>
+                <div class="product-title">Horikita Bomber</div>
+                <div class="product-desc">нейлон · сатиновая подкладка</div>
+                <div class="price-row">
+                    <span class="price">3300P</span>
+                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
+                </div>
+            </div>
+
+            <!-- 6. Джинсы -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://i.ibb.co/nNPWrHZh/IMG-20260421-152115-473.jpg" alt="джинсы">
+                </div>
+                <div class="product-title">Horikita Denim</div>
+                <div class="product-desc">12 oz · прямой крой · японский деним</div>
+                <div class="price-row">
+                    <span class="price">3400P</span>
+                    <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tg-section">
+            <a href="https://t.me/XOPNKNTA" target="_blank" class="tg-link">
+                ✦ ЗАКАЗАТЬ ЧЕРЕЗ TELEGRAM ✦
+            </a>
+            <div style="font-size: 0.65rem; margin-top: 0.8rem; color:#a5b4fc;">пишите @XOPNKNTA — размер, цвет, доставка</div>
+        </div>
+
+        <div class="footer">
+            HORIKITA66 // APPAREL — официальный магазин<br>
+            все заказы обрабатываются вручную
+        </div>
     </div>
-
-    <div class="products-grid">
-        <!-- 1. Футболка (ссылка №5) -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://i.ibb.co/dhHsG8T/IMG-20260421-151728-339.jpg" alt="футболка">
-            </div>
-            <div class="product-title">Horikita shirt</div>
-            <div class="product-desc">100% хлопок · чёрный / белый принт</div>
-            <div class="price-row">
-                <span class="price">2500P</span>
-                <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-            </div>
-        </div>
-
-        <!-- 2. Худи (ссылка №3) -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://i.ibb.co/Qv5CvXjG/IMG-20260420-203529-254.jpg" alt="худи">
-            </div>
-            <div class="product-title">Horikita Hoodie</div>
-            <div class="product-desc">оверсайз · утяжелённый хлопок</div>
-            <div class="price-row">
-                <span class="price">3199P</span>
-                <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-            </div>
-        </div>
-
-        <!-- 3. Свитшот (ссылка №2) -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://i.ibb.co/xK3FDMPj/IMG-20260420-170510-716.jpg" alt="свитшот">
-            </div>
-            <div class="product-title">Horikita Sweater</div>
-            <div class="product-desc">флис · минималистичный крой</div>
-            <div class="price-row">
-                <span class="price">3000P</span>
-                <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-            </div>
-        </div>
-
-        <!-- 4. Джемпер (ссылка №1) -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://i.ibb.co/r2MYmXj9/IMG-20260421-151834-343.jpg" alt="джемпер">
-            </div>
-            <div class="product-title">Horikita Pullover</div>
-            <div class="product-desc">шерсть + акрил · винтажный покрой</div>
-            <div class="price-row">
-                <span class="price">5000P</span>
-                <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-            </div>
-        </div>
-
-        <!-- 5. Бомбер (ссылка №4) -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://i.ibb.co/TD2j6czH/IMG-20260421-151625-372.jpg" alt="бомбер">
-            </div>
-            <div class="product-title">Horikita Bomber</div>
-            <div class="product-desc">нейлон · сатиновая подкладка</div>
-            <div class="price-row">
-                <span class="price">3300P</span>
-                <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-            </div>
-        </div>
-
-        <!-- 6. Джинсы (ссылка №6) -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="https://i.ibb.co/nNPWrHZh/IMG-20260421-152115-473.jpg" alt="джинсы">
-            </div>
-            <div class="product-title">Horikita Denim</div>
-            <div class="product-desc">12 oz · прямой крой · японский деним</div>
-            <div class="price-row">
-                <span class="price">3400P</span>
-                <a href="https://t.me/XOPNKNTA" target="_blank" class="buy-btn">КУПИТЬ →</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="tg-section">
-        <a href="https://t.me/XOPNKNTA" target="_blank" class="tg-link">
-            ✦ ЗАКАЗАТЬ ЧЕРЕЗ TELEGRAM ✦
-        </a>
-        <div style="font-size: 0.65rem; margin-top: 0.8rem; color:#7f7fb0;">пишите @XOPNKNTA — размер, цвет, доставка</div>
-    </div>
-
-    <div class="footer">
-        HORIKITA66 // APPAREL — официальный магазин<br>
-        все заказы обрабатываются вручную
-    </div>
-</div>
 </body>
-</html>
+                                                 </html>
